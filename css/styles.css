@@ -1,0 +1,645 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;700&family=DM+Serif+Display&display=swap");
+
+:root {
+  --accent: #d00036;
+  --accent-dark: #900122;
+  --heading-light: #e6dada;
+  --accent-line: linear-gradient(to right, transparent, var(--accent));
+  --accent-line-inverse: linear-gradient(to left, transparent, var(--accent));
+  --accent-line-width: clamp(55px, 25vw, 425px);
+  --accent-line-offset: 95%;
+  --text: #f1f1f1;
+  --text-sub: #dcdcdc;
+  --text-muted: #a7a7a7;
+  --shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+  --shadow-strong: 0 18px 38px rgba(0, 0, 0, 1);
+  --border-06: rgba(255, 255, 255, 0.06);
+  --border-05: rgba(255, 255, 255, 0.05);
+  --border-04: rgba(255, 255, 255, 0.04);
+  --card-gradient: radial-gradient(circle at 20% 20%, rgba(196, 0, 50, 0.14), transparent 32%), radial-gradient(circle at 80% 0%, rgba(196, 0, 50, 0.12), transparent 38%), linear-gradient(145deg, #1a0c0f 0%, #0f0f10 45%, #15060b 100%);
+  --panel-red: linear-gradient(145deg, rgba(196, 0, 50, 0.22) 0%, rgba(124, 0, 31, 0.6) 40%, rgba(25, 7, 10, 0.95) 100%);
+}
+
+/* ====================  Base Layout  ====================  */
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-weight: 400;
+  color: var(--text-sub);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(196, 0, 50, 0.08), transparent 30%),
+    radial-gradient(circle at 80% 0%, rgba(196, 0, 50, 0.08), transparent 38%),
+    linear-gradient(180deg, #0d0d0e 0%, #111113 45%, #0d0d0e 100%);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+html, body { min-height: 100%; }
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1900px;
+  margin: 0 auto;
+  padding: 0 1.2rem 3rem;
+}
+
+main > h1,
+main > p {
+  text-align: center;
+}
+
+
+section {
+  margin: 2.5rem 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "DM Serif Display", "Times New Roman", serif;
+  font-weight: 400;
+  margin: 0 0 0.65em;
+  color: var(--text);
+}
+
+h1 {
+  font-size: clamp(2.2rem, 3vw + 1rem, 3rem);
+  letter-spacing: 0.02em;
+}
+
+h2 {
+  font-size: clamp(1.4rem, 1vw + 1rem, 2rem);
+  letter-spacing: 0.015em;
+}
+
+p {
+  margin: 0 0 1rem;
+  color: var(--text-sub);
+}
+
+/* List styling */
+ul,
+ol {
+  padding-left: 2.5rem;
+  color: var(--text-muted);
+  margin: 0 0 1.2rem;
+}
+
+.record-bullets {
+  list-style: none;
+}
+
+.record-bullets li {
+  position: relative;
+}
+
+.record-bullets li::before {
+  content: "";
+  position: absolute;
+  left: -2rem;
+  top: 0.3em;
+  width: 1rem;
+  height: 1rem;
+  background: url("../images/record-bullet.svg") center/contain no-repeat;
+}
+
+/* link styling */
+a {
+  color: #c40032;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  color: #e21645;
+}
+
+/* image rule */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+
+/* ====================  Lorem Ipsum Page  ==================== */
+.lorem-main {
+  text-align: justify;
+}
+
+.lorem-subtopics h3 {
+  text-align: center;
+}
+
+.lorem-small-headings h4, 
+.lorem-small-headings h5, 
+.lorem-small-headings h6 {
+  text-align: center;
+}
+
+
+blockquote{
+  border-left: 4px solid #c40032;
+  padding-left: 1rem;
+  color: var(--text);
+  margin: 1.5rem auto;
+  width: fit-content;
+  font-style: italic;
+}
+
+pre {
+  display: block;
+  width: fit-content;
+  margin: 1.25rem auto;
+  white-space: pre-wrap;
+  background: #2c2c2c;
+  padding: 1rem;
+  border-radius: 10px;
+  color: var(--text);
+  border: 1px solid #2a2a2a;
+}
+
+code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+.lorem-img {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 20px 0 ;
+}
+
+/* ====================  Empty Page  ====================  */
+.empty-page {
+  text-align: center;
+  min-height: 100vh;
+}
+
+.empty-page h1 {
+  margin-top: 50px;
+}
+
+/* ====================  Header  ====================  */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: linear-gradient(180deg, #0b0b0c 20%, #121214 70%, #0b0b0c 100%);
+  border-bottom: 5px solid #1f1f1f;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+  padding: 0.85rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 58px;
+  width: auto;
+}
+
+.menu-toggle {
+  font-size: 1.5rem;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid #3f3f3f;
+  border-radius: 8px;
+  padding: 0.35rem 0.6rem;
+  cursor: pointer;
+}
+
+/* ==================== Nav Bar ==================== */
+
+.site-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #0d0d0e;
+  border-bottom: 1px solid #1f1f1f;
+  display: none;
+  backdrop-filter: blur(6px);
+}
+
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.site-nav a {
+  display: block;
+  padding: 0.75rem 0.5rem;
+  color: var(--text-sub);
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: #f1f1f1;
+  background: rgba(196, 0, 50, 0.08);
+  border-color: rgba(196, 0, 50, 0.3);
+}
+
+.site-nav a.active {
+  color: #c40032;
+  border-bottom: 2px solid #c40032;
+  padding-bottom: 0.55rem;
+}
+
+.site-header.nav-open .site-nav {
+  display: block;
+}
+
+
+/* ==================== Hero ==================== */
+
+.hero {
+  margin: 0;
+  padding: 5rem 1.5rem;
+  
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    radial-gradient(circle at 20% 20%, rgba(0, 0, 0, 0.35), transparent 40%),
+    url("../images/record-store-banner-2.webp") center/cover no-repeat;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.hero h1 {
+  color: #f7f3f3;
+  text-shadow: 10px 10px 10px rgba(0, 0, 0, 5);
+}
+
+.hero p {
+  color: #efebeb;
+  text-shadow: 10px 10px 10px rgba(0, 0, 0, 5);
+}
+
+/* ==================== Home page sections ====================  */
+
+/* Deal Card */
+.deal {
+  margin: 2.5rem auto;
+}
+
+.deal-card {
+  background: var(--panel-red);
+  border: 1px solid var(--border-05);
+  border-radius: 16px;
+  padding: 1.8rem 1.5rem;
+  box-shadow: var(--shadow-strong);
+}
+
+.deal-card h2 {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.deal-card h3 {
+  font-size: 1.3rem;
+  margin: 0.75rem 0 0.35rem;
+}
+
+.deal-card p {
+  margin: 0.25rem 0;
+}
+
+.deal-card img {
+  margin: 0 auto;
+  box-shadow: var(--shadow);
+}
+
+.deal-card .deal-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;      /* adjust for more/less space */
+  justify-content: center;
+}
+
+/* Features section*/
+.features-title{
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.features-title h2 {
+  font-size: 1.6rem;
+}
+.features {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Staff Picks Card*/
+
+.staff-picks,
+.events {
+  background: var(--card-gradient);
+  border-radius: 14px;
+  padding: 1.4rem 1.25rem;
+  border: 1px solid var(--border-05);
+  box-shadow: var(--shadow);
+}
+
+.staff-picks .staff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.staff-picks .btn{
+  display: block;
+  margin: 0.75rem auto 0;
+}
+
+/* Events Card*/
+
+.events ul {
+  color: var(--text-sub);
+}
+
+.events li {
+  margin: auto;
+}
+/* New Arrivals Section */
+.new-arrivals {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  text-align: center;
+}
+
+.new-arrivals h2 {
+  font-size: 1.6rem;
+}
+
+/* red accent lines*/
+.accent-lines {
+  position: relative;
+  display: block;
+  width: fit-content;
+  margin: 0 auto 1.5rem;
+  padding: 0 1rem;
+  color: var(--heading-light);
+}
+
+.accent-lines::before,
+.accent-lines::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: var(--accent-line-width);
+  height: 2px;
+  
+}
+
+.accent-lines::before {
+  right: var(--accent-line-offset);
+  background: var(--accent-line);
+}
+
+.accent-lines::after {
+  left: var(--accent-line-offset);
+  background: var(--accent-line-inverse);
+}
+
+/* Arrivals Grid*/
+.arrivals-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.arrival {
+  text-align: center;
+  padding: 0.75rem;
+  border-radius: 12px;
+  background: linear-gradient(140deg, rgba(196, 0, 50, 0.12), rgba(22, 22, 22, 0.9));
+  border: 1px solid var(--border-04);
+  box-shadow: var(--shadow);
+}
+
+.arrival p {
+  margin-top: 0.65rem;
+  font-weight: 600;
+}
+
+/* ====================  Records Page Grid  ==================== */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.product-card {
+  background: var(--card-gradient);
+  border-radius: 14px;
+  padding: 1.1rem;
+  border: 1px solid var(--border-06);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.product-card h3 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.product-card p:last-of-type {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.product-card details {
+  background: rgba(196, 0, 50, 0.08);
+  border-radius: 10px;
+  border: 1px solid rgba(196, 0, 50, 0.35);
+  text-align: center;
+}
+
+.product-card summary {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+}
+
+.product-card details[open] summary {
+  background: rgba(196, 0, 50, 0.12);
+}
+
+.product-card details p {
+  padding: 0.8rem 0.8rem;
+  color: var(--text-muted);
+}
+
+
+
+/* ============ Buttons ============ */
+
+.btn,
+summary {
+  display: inline-block;
+  background: linear-gradient(180deg, var(--accent) 10%, var(--accent-dark) 90%);
+  color: #fff;
+  text-align: center;
+  padding: 0.75rem 1.2rem;
+  border-radius: 10px;
+  /* font-weight: 700; */
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+}
+
+.btn:hover,
+summary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.6);
+  filter: brightness(1.05);
+}
+
+.btn:active,
+summary:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5) inset;
+}
+
+/* ============ Footer ============ */
+
+footer {
+  /* margin-top: 1.5rem; */
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #a7a7a7;
+  background: url(../images/footer-texture.png);
+  border-top: 1px solid #1e1e20;
+  box-shadow: 0 -8px 22px rgba(0, 0, 0, 0.35);
+}
+
+footer p {
+  margin: 0.2rem 0;
+  text-shadow: var(--shadow-strong);
+}
+
+/* ============ MEDIA QUERIES ============ */ 
+
+/* Tablet */
+
+@media (min-width: 768px) {
+  main {
+    padding: 0 1.75rem 4rem;
+  }
+
+  .site-header {
+    padding: 1rem 1.8rem;
+  }
+
+  .site-nav {
+    position: static;
+    width: auto;
+    display: block;
+    background: transparent;
+    border: none;
+  }
+
+  .site-nav ul {
+    flex-direction: row;
+    gap: 0.5rem;
+    padding: 0;
+  }
+
+  .site-nav a {
+    border-radius: 6px;
+    padding: 0.65rem 0.85rem;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .hero {
+    padding: 3.5rem 1.25rem;
+    background-position: center top;
+  }
+
+  .features {
+    grid-template-columns: 3fr 2fr;
+  }
+
+  .arrivals-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+/* Desktop */
+
+@media (min-width: 900px) {
+  .site-header {
+    padding: 1rem 2.75rem;
+  }
+
+  .logo img {
+    height: 64px;
+  }
+
+  .site-nav ul {
+    gap: 0.85rem;
+  }
+
+  main {
+    padding: 0 2.2rem 5rem;
+  }
+
+  .deal {
+    margin-top: 3rem;
+  }
+
+  .deal-card {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  
+  .deal-card h2 {
+    grid-column: 1 / -1;
+  }
+
+  .features {
+    gap: 1.75rem;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
