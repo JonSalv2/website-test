@@ -1,8 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;700&family=DM+Serif+Display&display=swap");
 
 :root {
-  --accent: #d00036;
-  --accent-dark: #900122;
+  --accent: #DA0037;
   --heading-light: #e6dada;
   --accent-line: linear-gradient(to right, transparent, var(--accent));
   --accent-line-inverse: linear-gradient(to left, transparent, var(--accent));
@@ -11,11 +10,9 @@
   --text: #f1f1f1;
   --text-sub: #dcdcdc;
   --text-muted: #a7a7a7;
-  --shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
-  --shadow-strong: 0 18px 38px rgba(0, 0, 0, 1);
-  --border-06: rgba(255, 255, 255, 0.06);
-  --border-05: rgba(255, 255, 255, 0.05);
-  --border-04: rgba(255, 255, 255, 0.04);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  --shadow-strong: 0 18px 38px rgba(0, 0, 0, 1.5);
+  --border: 1px solid rgba(237, 237, 237, 0.08);
   --card-gradient: radial-gradient(circle at 20% 20%, rgba(196, 0, 50, 0.14), transparent 32%), radial-gradient(circle at 80% 0%, rgba(196, 0, 50, 0.12), transparent 38%), linear-gradient(145deg, #1a0c0f 0%, #0f0f10 45%, #15060b 100%);
   --panel-red: linear-gradient(145deg, rgba(196, 0, 50, 0.22) 0%, rgba(124, 0, 31, 0.6) 40%, rgba(25, 7, 10, 0.95) 100%);
 }
@@ -24,7 +21,6 @@
 * {
   box-sizing: border-box;
 }
-
 
 body {
   margin: 0;
@@ -53,7 +49,6 @@ main > h1,
 main > p {
   text-align: center;
 }
-
 
 section {
   margin: 2.5rem 0;
@@ -91,9 +86,15 @@ ul,
 ol {
   padding-left: 2.5rem;
   color: var(--text-muted);
-  margin: 0 0 1.2rem;
+  margin: 0 0 2rem;
 }
 
+/* adding space between list items*/
+.record-bullets li + li {
+  margin-top: 0.80rem;
+}
+
+/* record decals for lists*/
 .record-bullets {
   list-style: none;
 }
@@ -114,7 +115,7 @@ ol {
 
 /* link styling */
 a {
-  color: #c40032;
+  color: var(--accent);
   text-decoration: none;
 }
 
@@ -147,9 +148,8 @@ img {
   text-align: center;
 }
 
-
 blockquote{
-  border-left: 4px solid #c40032;
+  border-left: 4px solid var(--accent);
   padding-left: 1rem;
   color: var(--text);
   margin: 1.5rem auto;
@@ -195,7 +195,10 @@ code {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: linear-gradient(180deg, #0b0b0c 20%, #121214 70%, #0b0b0c 100%);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.1), transparent 45%),
+    radial-gradient(circle at 80% 10%, rgba(196, 0, 0, 0.1), transparent 35%),
+    linear-gradient(180deg, #1a1b1f 0%, #141519 45%, #0d0d11 100%);
   border-bottom: 5px solid #1f1f1f;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
   padding: 0.85rem 1.2rem;
@@ -260,8 +263,8 @@ code {
 }
 
 .site-nav a.active {
-  color: #c40032;
-  border-bottom: 2px solid #c40032;
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
   padding-bottom: 0.55rem;
 }
 
@@ -275,7 +278,6 @@ code {
 .hero {
   margin: 0;
   padding: 5rem 1.5rem;
-  
   background:
     linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
     radial-gradient(circle at 20% 20%, rgba(0, 0, 0, 0.35), transparent 40%),
@@ -303,7 +305,7 @@ code {
 
 .deal-card {
   background: var(--panel-red);
-  border: 1px solid var(--border-05);
+  border: var(--border);
   border-radius: 16px;
   padding: 1.8rem 1.5rem;
   box-shadow: var(--shadow-strong);
@@ -357,8 +359,8 @@ code {
   background: var(--card-gradient);
   border-radius: 14px;
   padding: 1.4rem 1.25rem;
-  border: 1px solid var(--border-05);
-  box-shadow: var(--shadow);
+  border: var(--border);
+  box-shadow: var(--shadow-strong);
 }
 
 .staff-picks .staff-grid {
@@ -373,6 +375,10 @@ code {
   margin: 0.75rem auto 0;
 }
 
+.staff-picks img {
+  box-shadow: var(--shadow);
+}
+
 /* Events Card*/
 
 .events ul {
@@ -382,6 +388,7 @@ code {
 .events li {
   margin: auto;
 }
+
 /* New Arrivals Section */
 .new-arrivals {
   background: transparent;
@@ -392,6 +399,10 @@ code {
 
 .new-arrivals h2 {
   font-size: 1.6rem;
+}
+
+.new-arrivals img{
+  box-shadow: var(--shadow);
 }
 
 /* red accent lines*/
@@ -436,8 +447,8 @@ code {
   padding: 0.75rem;
   border-radius: 12px;
   background: linear-gradient(140deg, rgba(196, 0, 50, 0.12), rgba(22, 22, 22, 0.9));
-  border: 1px solid var(--border-04);
-  box-shadow: var(--shadow);
+  border: var(--border);
+  box-shadow: var(--shadow-strong);
 }
 
 .arrival p {
@@ -458,11 +469,15 @@ code {
   background: var(--card-gradient);
   border-radius: 14px;
   padding: 1.1rem;
-  border: 1px solid var(--border-06);
-  box-shadow: var(--shadow);
+  border: var(--border);
+  box-shadow: var(--shadow-strong);
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
+}
+
+.product-card img {
+  box-shadow: var(--shadow);
 }
 
 .product-card h3 {
@@ -502,22 +517,21 @@ code {
 }
 
 
-
 /* ============ Buttons ============ */
 
 .btn,
 summary {
   display: inline-block;
-  background: linear-gradient(180deg, var(--accent) 10%, var(--accent-dark) 90%);
+  background: linear-gradient(180deg, var(--accent) 10%, #900122 90%);
   color: #fff;
   text-align: center;
   padding: 0.75rem 1.2rem;
   border-radius: 10px;
-  /* font-weight: 700; */
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border: var(--border);
+  box-shadow: var(--shadow-strong), inset var(--shadow);
   cursor: pointer;
 }
 
@@ -542,7 +556,7 @@ footer {
   text-align: center;
   color: #a7a7a7;
   background: url(../images/footer-texture.png);
-  border-top: 1px solid #1e1e20;
+  border-top: 3px solid #1e1e20;
   box-shadow: 0 -8px 22px rgba(0, 0, 0, 0.35);
 }
 
@@ -644,7 +658,7 @@ footer p {
   }
 }
 
-/* New Arrivals responsive columns */
+/* fixing uneven position behavior between 621–980px screen width */
 @media (max-width: 620px) {
   .arrivals-grid {
     grid-template-columns: 1fr;
