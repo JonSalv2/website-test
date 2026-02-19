@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600;700&family=DM+Serif+Display&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css");
 
 :root {
   --accent: #DA0037;
@@ -7,15 +8,17 @@
   --accent-line-inverse: linear-gradient(to left, transparent, var(--accent));
   --accent-line-width: clamp(55px, 25vw, 425px);
   --accent-line-offset: 95%;
-  --text: #f1f1f1;
-  --text-sub: #dcdcdc;
-  --text-muted: #a7a7a7;
+  --text: #EDEDED;
+  --text-sub: #d6d6d6fb;
+  --text-muted: #a1a1a1;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
   --shadow-strong: 0 18px 38px rgba(0, 0, 0, 1.5);
-  --border: 1px solid rgba(237, 237, 237, 0.08);
+  --border: 1.5px solid rgba(237, 237, 237, 0.2);
+  --border-red: 1px solid rgba(196, 0, 50, 0.3);
   --card-gradient: radial-gradient(circle at 20% 20%, rgba(196, 0, 50, 0.14), transparent 32%), radial-gradient(circle at 80% 0%, rgba(196, 0, 50, 0.12), transparent 38%), linear-gradient(145deg, #1a0c0f 0%, #0f0f10 45%, #15060b 100%);
   --panel-red: linear-gradient(145deg, rgba(196, 0, 50, 0.22) 0%, rgba(124, 0, 31, 0.6) 40%, rgba(25, 7, 10, 0.95) 100%);
 }
+
 
 /* ====================  Base Layout  ====================  */
 * {
@@ -46,13 +49,9 @@ main {
 }
 
 main > h1,
-main > p {
-  text-align: center;
-}
+main > p { text-align: center; }
 
-section {
-  margin: 2.5rem 0;
-}
+section { margin: 2.5rem 0; }
 
 h1,
 h2,
@@ -90,18 +89,12 @@ ol {
 }
 
 /* adding space between list items*/
-.record-bullets li + li {
-  margin-top: 0.80rem;
-}
+.record-bullets li + li { margin-top: 0.80rem; }
 
 /* record decals for lists*/
-.record-bullets {
-  list-style: none;
-}
+.record-bullets { list-style: none; }
 
-.record-bullets li {
-  position: relative;
-}
+.record-bullets li { position: relative; }
 
 .record-bullets li::before {
   content: "";
@@ -120,9 +113,7 @@ a {
 }
 
 a:hover,
-a:focus-visible {
-  color: #e21645;
-}
+a:focus-visible { color: #f6426c; }
 
 /* image rule */
 img {
@@ -132,62 +123,36 @@ img {
   border-radius: 6px;
 }
 
-
-/* ====================  Lorem Ipsum Page  ==================== */
-.lorem-main {
-  text-align: justify;
-}
-
-.lorem-subtopics h3 {
-  text-align: center;
-}
-
-.lorem-small-headings h4, 
-.lorem-small-headings h5, 
-.lorem-small-headings h6 {
-  text-align: center;
-}
-
-blockquote{
-  border-left: 4px solid var(--accent);
-  padding-left: 1rem;
-  color: var(--text);
-  margin: 1.5rem auto;
-  width: fit-content;
-  font-style: italic;
-}
-
-pre {
+/* red accent lines*/
+.accent-lines {
+  position: relative;
   display: block;
   width: fit-content;
-  margin: 1.25rem auto;
-  white-space: pre-wrap;
-  background: #2c2c2c;
-  padding: 1rem;
-  border-radius: 10px;
-  color: var(--text);
-  border: 1px solid #2a2a2a;
+  margin: 0 auto 1.5rem;
+  padding: 0 1rem;
+  color: var(--heading-light);
 }
 
-code {
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+.accent-lines::before,
+.accent-lines::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: var(--accent-line-width);
+  height: 2px;
+  
 }
 
-.lorem-img {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0 20px 0 ;
+.accent-lines::before {
+  right: var(--accent-line-offset);
+  background: var(--accent-line);
 }
 
-/* ====================  Empty Page  ====================  */
-.empty-page {
-  text-align: center;
-  min-height: 100vh;
+.accent-lines::after {
+  left: var(--accent-line-offset);
+  background: var(--accent-line-inverse);
 }
 
-.empty-page h1 {
-  margin-top: 50px;
-}
 
 /* ====================  Header  ====================  */
 
@@ -199,7 +164,7 @@ code {
     radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.1), transparent 45%),
     radial-gradient(circle at 80% 10%, rgba(196, 0, 0, 0.1), transparent 35%),
     linear-gradient(180deg, #1a1b1f 0%, #141519 45%, #0d0d11 100%);
-  border-bottom: 5px solid #1f1f1f;
+  border-bottom: 1px solid #EDEDED;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
   padding: 0.85rem 1.2rem;
   display: flex;
@@ -216,11 +181,12 @@ code {
   font-size: 1.5rem;
   background: transparent;
   color: var(--text);
-  border: 1px solid #3f3f3f;
+  border: var(--border);
   border-radius: 8px;
   padding: 0.35rem 0.6rem;
   cursor: pointer;
 }
+
 
 /* ==================== Nav Bar ==================== */
 
@@ -259,7 +225,7 @@ code {
 .site-nav a:focus-visible {
   color: #f1f1f1;
   background: rgba(196, 0, 50, 0.08);
-  border-color: rgba(196, 0, 50, 0.3);
+  border: var(--border-red);
 }
 
 .site-nav a.active {
@@ -268,9 +234,7 @@ code {
   padding-bottom: 0.55rem;
 }
 
-.site-header.nav-open .site-nav {
-  display: block;
-}
+.site-header.nav-open .site-nav { display: block; }
 
 
 /* ==================== Hero ==================== */
@@ -299,9 +263,7 @@ code {
 /* ==================== Home page sections ====================  */
 
 /* Deal Card */
-.deal {
-  margin: 2.5rem auto;
-}
+.deal { margin: 2.5rem auto; }
 
 .deal-card {
   background: var(--panel-red);
@@ -321,9 +283,7 @@ code {
   margin: 0.75rem 0 0.35rem;
 }
 
-.deal-card p {
-  margin: 0.25rem 0;
-}
+.deal-card p { margin: 0.25rem 0; }
 
 .deal-card img {
   margin: 0 auto;
@@ -333,7 +293,7 @@ code {
 .deal-card .deal-card-details {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;      /* adjust for more/less space */
+  gap: 2.5rem;      
   justify-content: center;
 }
 
@@ -344,9 +304,8 @@ code {
   font-size: 1.8rem;
 }
 
-.features-title h2 {
-  font-size: 1.6rem;
-}
+.features-title h2 { font-size: 1.6rem; }
+
 .features {
   display: grid;
   gap: 1.5rem;
@@ -375,19 +334,13 @@ code {
   margin: 0.75rem auto 0;
 }
 
-.staff-picks img {
-  box-shadow: var(--shadow);
-}
+.staff-picks img { box-shadow: var(--shadow); }
 
 /* Events Card*/
 
-.events ul {
-  color: var(--text-sub);
-}
+.events ul { color: var(--text-sub); }
 
-.events li {
-  margin: auto;
-}
+.events li { margin: auto; }
 
 /* New Arrivals Section */
 .new-arrivals {
@@ -397,43 +350,9 @@ code {
   text-align: center;
 }
 
-.new-arrivals h2 {
-  font-size: 1.6rem;
-}
+.new-arrivals h2 { font-size: 1.6rem; }
 
-.new-arrivals img{
-  box-shadow: var(--shadow);
-}
-
-/* red accent lines*/
-.accent-lines {
-  position: relative;
-  display: block;
-  width: fit-content;
-  margin: 0 auto 1.5rem;
-  padding: 0 1rem;
-  color: var(--heading-light);
-}
-
-.accent-lines::before,
-.accent-lines::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: var(--accent-line-width);
-  height: 2px;
-  
-}
-
-.accent-lines::before {
-  right: var(--accent-line-offset);
-  background: var(--accent-line);
-}
-
-.accent-lines::after {
-  left: var(--accent-line-offset);
-  background: var(--accent-line-inverse);
-}
+.new-arrivals img{ box-shadow: var(--shadow); }
 
 /* Arrivals Grid*/
 .arrivals-grid {
@@ -456,6 +375,7 @@ code {
   font-weight: 600;
 }
 
+
 /* ====================  Records Page Grid  ==================== */
 
 .product-grid {
@@ -476,9 +396,7 @@ code {
   gap: 0.7rem;
 }
 
-.product-card img {
-  box-shadow: var(--shadow);
-}
+.product-card img { box-shadow: var(--shadow); }
 
 .product-card h3 {
   font-size: 1.1rem;
@@ -517,7 +435,7 @@ code {
 }
 
 
-/* ============ Buttons ============ */
+/* ==================== Buttons ==================== */
 
 .btn,
 summary {
@@ -531,8 +449,9 @@ summary {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border: var(--border);
-  box-shadow: var(--shadow-strong), inset var(--shadow);
+  box-shadow: var(--shadow), inset var(--shadow);
   cursor: pointer;
+  transition: transform 200ms ease, box-shadow 200ms ease, filter 200ms ease;
 }
 
 .btn:hover,
@@ -548,7 +467,59 @@ summary:active {
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5) inset;
 }
 
-/* ============ Footer ============ */
+
+/* ====================  Lorem Ipsum Page  ==================== */
+
+.lorem-main { text-align: justify; }
+
+.lorem-subtopics h3 { text-align: center; }
+
+.lorem-small-headings h4, 
+.lorem-small-headings h5, 
+.lorem-small-headings h6 {
+  text-align: center;
+}
+
+blockquote{
+  border-left: 4px solid var(--accent);
+  padding-left: 1rem;
+  color: var(--text);
+  margin: 1.5rem auto;
+  width: fit-content;
+  font-style: italic;
+}
+
+pre {
+  display: block;
+  width: fit-content;
+  margin: 1.25rem auto;
+  white-space: pre-wrap;
+  background: #2c2c2c;
+  padding: 1rem;
+  border-radius: 10px;
+  color: var(--text);
+  border: var(--border-red);
+}
+
+code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+
+.lorem-img {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 20px 0 ;
+}
+
+
+/* ====================  Empty Page  ====================  */
+.empty-page {
+  text-align: center;
+  min-height: 100vh;
+}
+
+.empty-page h1 { margin-top: 50px; }
+
+
+/* ==================== Footer ==================== */
 
 footer {
   /* margin-top: 1.5rem; */
@@ -565,7 +536,7 @@ footer p {
   text-shadow: var(--shadow-strong);
 }
 
-/* ============ MEDIA QUERIES ============ */ 
+/* ==================== MEDIA QUERIES ==================== */ 
 
 /* Tablet */
 
@@ -658,7 +629,7 @@ footer p {
   }
 }
 
-/* fixing uneven position behavior between 621–980px screen width */
+/* fixing uneven card position behavior on home page between 415-980px screen width */
 @media (max-width: 620px) {
   .arrivals-grid {
     grid-template-columns: 1fr;
