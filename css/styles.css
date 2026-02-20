@@ -10,7 +10,7 @@
   --accent-line-offset: 95%;
   --text: #EDEDED;
   --text-sub: #d6d6d6fb;
-  --text-muted: #a1a1a1;
+  --text-muted: #9b9a9a;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
   --shadow-strong: 0 18px 38px rgba(0, 0, 0, 1.5);
   --border: 1.5px solid rgba(237, 237, 237, 0.2);
@@ -34,8 +34,8 @@ body {
   font-weight: 400;
   color: var(--text-sub);
   background:
-    radial-gradient(circle at 20% 20%, rgba(196, 0, 50, 0.08), transparent 30%),
-    radial-gradient(circle at 80% 0%, rgba(196, 0, 50, 0.08), transparent 38%),
+    radial-gradient(circle at 20% 20%, rgba(196, 0, 50, 0.2), transparent 40%),
+    radial-gradient(circle at 80% 0%, rgba(218, 0, 55, 0.1), transparent 40%),
     linear-gradient(180deg, #0d0d0e 0%, #111113 45%, #0d0d0e 100%);
   line-height: 1.6;
 }
@@ -90,13 +90,13 @@ ol {
   margin: 0 0 2rem;
 }
 
-/* adding space between list items*/
-.record-bullets li + li { margin-top: 0.80rem; }
-
 /* record decals for lists*/
+
 .record-bullets { list-style: none; }
 
 .record-bullets li { position: relative; }
+
+.record-bullets li + li { margin-top: 0.80rem; } /* adding space between list items*/
 
 .record-bullets li::before {
   content: "";
@@ -110,18 +110,18 @@ ol {
 
 /* link styling */
 a {
+  color: var(--text-muted);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-a:link,
 a:visited {
-  color: #ff9ab4;
+  color: rgb(255, 48, 82); 
 }
 
 a:hover,
 a:focus-visible {
-  color: #f6426c;
+  color: var(--accent);
 }
 
 /* image rule */
@@ -171,7 +171,7 @@ img {
   z-index: 20;
   background:
     radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.1), transparent 45%),
-    radial-gradient(circle at 80% 10%, rgba(196, 0, 0, 0.1), transparent 35%),
+    radial-gradient(circle at 80% 10%, rgba(216, 2, 2, 0.1), transparent 35%),
     linear-gradient(180deg, #1a1b1f 0%, #141519 45%, #0d0d11 100%);
   border-bottom: 1px solid #EDEDED;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
