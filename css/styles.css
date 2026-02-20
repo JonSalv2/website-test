@@ -21,6 +21,7 @@
 
 
 /* ====================  Base Layout  ====================  */
+
 * {
   box-sizing: border-box;
 }
@@ -34,13 +35,11 @@ body {
   font-weight: 400;
   color: var(--text-sub);
   background:
-    radial-gradient(circle at 20% 20%, rgba(196, 0, 50, 0.2), transparent 40%),
-    radial-gradient(circle at 80% 0%, rgba(218, 0, 55, 0.1), transparent 40%),
-    linear-gradient(180deg, #0d0d0e 0%, #111113 45%, #0d0d0e 100%);
+    radial-gradient(circle at 20% 20%, rgba(218, 0, 50, 0.1), transparent 30%),
+    radial-gradient(circle at 80% 0%, rgba(218, 0, 50, 0.1), transparent 30%),
+    linear-gradient(180deg, #0d0d0e 10%, #111113 45%, #0d0d0e 100%);
   line-height: 1.6;
 }
-
-html, body { min-height: 100%; }
 
 main {
   flex: 1;
@@ -49,9 +48,6 @@ main {
   margin: 0 auto;
   padding: 0 1.2rem 3rem;
 }
-
-main > h1,
-main > p { text-align: center; }
 
 section { margin: 2.5rem 0; }
 
@@ -90,7 +86,7 @@ ol {
   margin: 0 0 2rem;
 }
 
-/* record decals for lists*/
+/* record decals for lists */
 
 .record-bullets { list-style: none; }
 
@@ -116,7 +112,7 @@ a {
 }
 
 a:visited {
-  color: rgb(255, 48, 82); 
+  color: rgb(255, 101, 127); 
 }
 
 a:hover,
@@ -163,6 +159,44 @@ img {
 }
 
 
+/* ==================== Buttons ==================== */
+
+.btn,
+summary {
+  display: inline-block;
+  background: linear-gradient(180deg, var(--accent) 10%, #900122 90%);
+  color: #fff;
+  text-align: center;
+  padding: 0.75rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: var(--border);
+  box-shadow: var(--shadow), inset var(--shadow);
+  cursor: pointer;
+  transition: transform 200ms ease, box-shadow 200ms ease, filter 200ms ease;
+}
+
+.btn:hover,
+summary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.6);
+  filter: brightness(1.05);
+}
+
+.btn:active,
+summary:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5) inset;
+}
+
+.btn:link,
+.btn:visited {
+  color: #fff;
+}
+
+
 /* ====================  Header  ====================  */
 
 .site-header {
@@ -171,7 +205,7 @@ img {
   z-index: 20;
   background:
     radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.1), transparent 45%),
-    radial-gradient(circle at 80% 10%, rgba(216, 2, 2, 0.1), transparent 35%),
+    radial-gradient(circle at 80% 10%, rgba(218, 0, 55, 0.08), transparent 40%),
     linear-gradient(180deg, #1a1b1f 0%, #141519 45%, #0d0d11 100%);
   border-bottom: 1px solid #EDEDED;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
@@ -345,19 +379,9 @@ img {
 
 .staff-picks img { box-shadow: var(--shadow); }
 
-/* Events Card*/
-
-.events ul { color: var(--text-sub); }
-
-.events li { margin: auto; }
-
 /* New Arrivals Section */
-.new-arrivals {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  text-align: center;
-}
+
+.new-arrivals { text-align: center; }
 
 .new-arrivals h2 { font-size: 1.6rem; }
 
@@ -444,43 +468,6 @@ img {
 }
 
 
-/* ==================== Buttons ==================== */
-
-.btn,
-summary {
-  display: inline-block;
-  background: linear-gradient(180deg, var(--accent) 10%, #900122 90%);
-  color: #fff;
-  text-align: center;
-  padding: 0.75rem 1.2rem;
-  border-radius: 10px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  border: var(--border);
-  box-shadow: var(--shadow), inset var(--shadow);
-  cursor: pointer;
-  transition: transform 200ms ease, box-shadow 200ms ease, filter 200ms ease;
-}
-
-.btn:hover,
-summary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.6);
-  filter: brightness(1.05);
-}
-
-.btn:active,
-summary:active {
-  transform: translateY(0);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5) inset;
-}
-
-.btn:link,
-.btn:visited {
-  color: #fff;
-}
-
 /* ====================  Lorem Ipsum Page  ==================== */
 
 .lorem-main { text-align: justify; }
@@ -529,9 +516,10 @@ code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
 
 
 /* ====================  Empty Page  ====================  */
+
 .empty-page {
   text-align: center;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 .empty-page h1 { margin-top: 50px; }
