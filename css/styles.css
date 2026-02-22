@@ -324,9 +324,13 @@ summary:active {
 .deal-card h3 {
   font-size: 1.3rem;
   margin: 0.75rem 0 0.35rem;
+  text-align: center;
 }
 
-.deal-card p { margin: 0.25rem 0; }
+.deal-card p { 
+  margin: 0.25rem 0;
+  text-align: justify; 
+}
 
 .deal-card img {
   margin: 0 auto;
@@ -434,6 +438,7 @@ summary:active {
 .product-card h3 {
   font-size: 1.1rem;
   margin: 0;
+  text-align: center;
 }
 
 .product-card p:last-of-type {
@@ -446,6 +451,7 @@ summary:active {
   border-radius: 10px;
   border: 1px solid rgba(196, 0, 50, 0.35);
   text-align: center;
+  margin-top: auto;
 }
 
 .product-card summary {
@@ -491,17 +497,22 @@ blockquote{
 
 pre {
   display: block;
-  width: fit-content;
+  width: max-content;
   margin: 1.25rem auto;
-  white-space: pre-wrap;
+  white-space: pre-line;
   background: #2c2c2c;
-  padding: 1rem;
+  padding: 1rem 1.3rem;
   border-radius: 10px;
   color: var(--text);
   border: var(--border-red);
+  text-align: left;
 }
 
-code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+pre code { 
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  display: block;
+  padding-left: 0;
+}
 
 .lorem-img {
   display: flex;
